@@ -6,11 +6,11 @@ const ArticleItem = (props) => {
     return (
             <ListGroup.Item>
             <Container>
-                <Row>
+                <Row className="my-3">
                     <Col md>
-                        <h5>{article.title}</h5>
+                        <h5 className="mb-4">{article.title}</h5>
                         <p>{article.description}</p>
-                        <ListGroup horizontal>
+                        <ListGroup horizontal className="my-2">
                             <ListGroup.Item >
                             <a href={article.url}>{article.source.name}</a>
                             </ListGroup.Item>
