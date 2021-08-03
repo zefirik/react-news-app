@@ -8,8 +8,8 @@ const ArticleItem = (props) => {
             <Container>
                 <Row>
                     <Col md>
-                        <div >{article.title}</div>
-                        <div>{article.description}</div>
+                        <h5>{article.title}</h5>
+                        <p>{article.description}</p>
                         <ListGroup horizontal>
                             <ListGroup.Item >
                             <a href={article.url}>{article.source.name}</a>
