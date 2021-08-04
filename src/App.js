@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { getArticles } from "./components/config/axios"
+import { getNewsArticles } from "./components/config/axios";
 import ArticleList from "./components/articleList/articleList";
 import SearchBar from "./components/searchBar/searchBar";
 
@@ -12,6 +13,15 @@ class App extends React.Component {
     loading: false,
     apiError: "",
   };
+
+  async componentDidMount() {
+    try {
+      const response = await getNewsArticles();
+      this.setState({ articles: response.articles });
+    } catch (error) {
+      this.setState({ apiError: "Could not find any articles" });
+    }
+  }
 
   searchForTopic = async (topic) => {
     try {
@@ -44,11 +54,11 @@ class App extends React.Component {
        <h2 className="d-flex justify-content-center my-3">  Search for a topic</h2>
        <SearchBar searchForTopic={this.searchForTopic} />
      </Row>
-        <p className="d-flex justify-content-center"> Powered by <a href="https://newsapi.org/" > NewsAPI.org</a></p>
+        <p className="d-flex justify-content-center"> Powered by :<a href = "https://newsapi.org/">NewsAPI.org</a></p>
         {loading && (
           <p className="d-flex justify-content-center">Searching for articles...</p>
         )}
-         {(articles.length > 0) && (
+         {(articles.length > 0) && searchTopic && (
           <p className="d-flex justify-content-center">
             Found {totalResults} articles on {searchTopic}
           </p>

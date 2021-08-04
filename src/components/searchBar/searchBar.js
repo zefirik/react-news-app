@@ -23,7 +23,7 @@ handleChange = event => {
                    
                 <Form onSubmit={this.handleSubmit} >
                 <Row className="d-flex justify-content-center">    
-                <Col>
+                <Col md = "9" xs="6">
                     <Form.Group className="mb-4">
                         <Form.Control 
                             type="text" 
@@ -34,7 +34,7 @@ handleChange = event => {
                         />
                      </Form.Group>    
                 </Col>
-                <Col>          
+                <Col md = "2" xs="4">          
                     <Button  type="submit" className="mb-2">
                           Search
                     </Button>
