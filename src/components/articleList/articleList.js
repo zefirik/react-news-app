@@ -5,7 +5,9 @@ const ArticleItem = (props) => {
     const { article } = props;
     return (
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={article.urlToImage} className = "mt-5"/>
+                <Card.Link href={article.url}>
+                    <Card.Img variant="top" src={article.urlToImage} className = "mt-5"/>
+                </Card.Link>
                 <Card.Body>
                     <Card.Title className = "my-3">{article.title}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted"> 
